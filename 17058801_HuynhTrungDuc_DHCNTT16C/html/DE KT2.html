@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De KT 2</title>
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+    <script src="../JS/jquery-3.6.0.min.js"></script>
+    <script src="../JS/bootstrap.min.js"></script>
+    <style>
+        [class*="col-"] {
+            padding: 0 !important;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#btnDK").click(function() {
+                $("#myModal").modal();
+            })
+            $("#txtMaSV").blur(function() {
+                var mauKT = /^[1-9]{1}[0-9]{9}$/
+                var chuoi = $("#txtMaSV").val();
+                if (mauKT.test(chuoi) == true) {
+                    alert("bạn nhập đúng");    
+                }
+                else {
+                    alert("bạn nhập sai");
+                }
+            })
+            function KiemtraNgayTG () {
+                if ($("#txtNgay").val() == "") {
+                $("#tbNgay").html("* bắt buộc nhập");
+                return false;
+                }
+                var day = new Date($("#txtNgay").val());
+                var today = new Date();
+                today.setDate(today.getDate() + 7);
+                if (day < today) {
+                $("#tbNgay").html("* Ngày tham gia phải sau ngày hiện tại 7 ngày");
+                return false;
+                }
+                $("#tbNgay").html("*");
+                return true;
+            }
+            $("#txtNgay").blur(KiemtraNgayKH);
+            $("#txtSoDT").blur(function() {
+                var mauKT = /^[0]{1}[0-9]{9}$/
+                var chuoi = $("#txtSoDT").val();
+                if (mauKT.test(chuoi) == true) {
+                    alert("bạn nhập đúng");    
+                }
+                else {
+                    alert("bạn nhập sai");
+                }
+            })
+            $("#btnSave").append(function() {
+                $("table tbody").append(them);
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="../Images/logo.PNG" alt="" srcset="">
+            </div>
+            <div class="col-md-10 text-center">
+                <h3>ĐOÀN THANH NIÊN THÀNH PHỐ HỒ CHÍ MINH</h3>
+                <h4 class="text-danger">ĐOÀN THANH NIÊN TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP THÀNH PHỐ HỒ CHÍ MINH</h4>
+            </div>        
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-expand-md bg-dark col-md-12 justify-content">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link">TRANG CHỦ</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">ĐOÀN THỂ</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">SỰ KIỆN</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">HOẠT ĐỘNG</a>
+                        <ul class="menu-child">
+                            <li><a href="#" class="nav-link" id="btnDK">ĐĂNG KÝ</a></li>
+                            <li><a href="#">THAM GIA</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <aside>
+                    <img src="../Images/ngayhoithanhnien.JPG" alt="" srcset="" class="rounded-circle" width="100%">
+                </aside>
+            </div>
+            <div class="col-md-6">
+                <h3>TIN NỔI BẬT</h3>
+                <nav class="">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="#" class="nav-link">I. Mùa hè xanh</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">II. Thanh niên tình nguyện</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">III. Tấm Lòng Vàng</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">IV. Hiến Máu Nhân Đạo</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">V. Bảo vệ môi trường sạch</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">VI. Thi đua lập thành tích chào mừng 26/3</a></li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>DANH SÁCH ĐĂNG KÝ HOẠT ĐỘNG MÙA HÈ XANH</h2>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <section>
+                <table class="table table-striped">
+                    <tr>
+                        <th>
+                            <tr>
+                                <td>STT</td>
+                                <td>MÃ SV</td>
+                                <td>TÊN SV</td>
+                                <td>NGÀY THAM GIA</td>
+                                <td>EMAIL</td>
+                                <td>SỐ ĐIỆN THOẠI</td>
+                            </tr>
+                        </th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div class="row">
+            <footer class="col-md-12 bg-info text-right">
+                <h4>@ 2021-2022 Đoàn thanh niên - Trường đại học Công Nghiệp TP.Hồ Chí Minh</h4>
+            </footer>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">THÔNG TIN ĐĂNG KÍ</div>
+                <div class="modal-body">
+                    <form action="" method="get" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="txtMaSV">Mã sinh viên</label>
+                            <input type="text" name="txtMaSV" id="txtMaSV" class="form-control">
+                            <span id="tbMaSV" class="texr-danger">*</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtHT">Họ tên</label>
+                            <input type="text" name="txtHT" id="txtHT" class="form-control">
+                            <span id="tbHT" class="texr-danger">*</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtNgay" class="control-label col-xs-3">Ngày tham gia</label>
+                            <div class="col-md-9">
+                                <input type="date" class="form-control" id="txtNgay">
+                                <span id="tbNgay" class="texr-danger">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmail">Email</label>
+                            <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="xxxx@iuh.edu.vn">
+                            <span id="tbEmail" class="texr-danger">*</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtSoDT">Số điện thoại</label>
+                            <input type="text" name="txtSoDT" id="txtSoDT" class="form-control">
+                            <span id="tbSoDT" class="texr-danger">*</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="submit" id="btnSubDK" class="btn btn-warning">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
